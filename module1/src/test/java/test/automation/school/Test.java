@@ -16,7 +16,7 @@ public class Test {
         //  chromeDriver.findElement(By.cssSelector("//*[@name='q']"));
 
         element.sendKeys("cheese!");
-        element.sendKeys(Keys.ENTER);
+        element.sendKeys(Keys.ENTER); 
     }
 
 }
