@@ -38,9 +38,9 @@ public class WebElementActionTest {
     //TODO 3 - Create TestNg Test method which navigates to Contact info page (click()) and verify that user is navigated to other page
     // NOTE - in order to verify that user has been navigated to new page, you can use 'driver.getTitle()', however this will work only for non Single Page Applications
     @Test
-    public void locateElementByIdTest() throws Exception {
-        WebElement elementById = driver.findElement(By.id("contact-link"));
-        elementById.click();
+    public void contactInfo() throws Exception {
+        WebElement contactInfo = driver.findElement(By.id("contact-link"));
+        contactInfo.click();
     }
     //TODO 3
 
@@ -48,7 +48,7 @@ public class WebElementActionTest {
     //TODO 4 -Create TestNg Test method which inputs some value into search input field and then clear the inputted text. Try do it in 2 possible ways.
     //TODO 4 - Also verify inputted text after each input action.
     @Test
-    public void locateElementByIdTest2() throws Exception {
+    public void inptSearch() throws Exception {
         WebElement inptSearch = driver.findElement(By.id("search_query_top"));
         inptSearch.sendKeys("test");
         inptSearch.clear();
@@ -59,7 +59,7 @@ public class WebElementActionTest {
     //TODO 5 - Create TestNg Test method - input some value into search input field and submit the result. Verify that user is navigated to new page
     // NOTE - in order to verify that user has been navigated to new page, you can use 'driver.getTitle()', however this will work only for non Single Page Applications
     @Test
-    public void locateElementByIdTest3() throws Exception {
+    public void submitSearch() throws Exception {
         WebElement inptSearch = driver.findElement(By.id("search_query_top"));
         inptSearch.sendKeys("test",  Keys.ENTER);
         String getTitle = driver.getTitle();
