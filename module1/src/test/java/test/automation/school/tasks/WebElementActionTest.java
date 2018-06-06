@@ -28,10 +28,10 @@ public class WebElementActionTest {
     //TODO 1
 
     //TODO 2 - Destroy WebDriver instance in a test fixture (test test teardown)
-//    @AfterMethod
-//    public void tearDown() throws Exception {
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void tearDown() throws Exception {
+        driver.quit();
+    }
     //TODO 2
 
 
@@ -63,7 +63,7 @@ public class WebElementActionTest {
         WebElement inptSearch = driver.findElement(By.id("search_query_top"));
         inptSearch.sendKeys("test",  Keys.ENTER);
         String getTitle = driver.getTitle();
-        System.out.println("Your page title Is : "+getTitle);
+        System.out.println("Page title Is : "+getTitle);
         Assert.assertEquals("My Store",getTitle);
     }
     //TODO 5
