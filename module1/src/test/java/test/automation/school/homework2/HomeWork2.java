@@ -6,12 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class HomeWork2 {
+public class HomeWork2{
     private WebDriver driver;
 
     @BeforeMethod
@@ -23,10 +24,10 @@ public class HomeWork2 {
         driver.get("http://juliemr.github.io/protractor-demo/");
     }
 
-//    @AfterMethod
-//    public void tearDown() throws Exception {
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void tearDown() throws Exception {
+        driver.quit();
+    }
 
     @Test
     public void checkTitle() throws Exception {
@@ -69,6 +70,4 @@ public class HomeWork2 {
         List<WebElement> resultList = driver.findElements(By.cssSelector("tr.ng-scope"));
         Assert.assertTrue(resultList.size() == 3);
     }
-
-
 }
