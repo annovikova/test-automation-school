@@ -19,7 +19,6 @@ public class HomeWork2 {
 
         driver = new FirefoxDriver();
         driver.get("http://juliemr.github.io/protractor-demo/");
-        WebElement inptSearch1 = driver.findElement(By.cssSelector("input[ng-model='first']"));
     }
 
 //    @AfterMethod

@@ -19,7 +19,7 @@ public class GoogleSearchTest {
     @BeforeMethod
     public void testName() throws Exception {
         System.setProperty("webdriver.chrome.driver", "../drivers/chromedriver-v2.39-win32/chromedriver.exe");
-        driver = new ChromeDriver(); // new ChromeDriver() -> ctrl+atl+v //shift+f6-> change in all places
+        driver = new ChromeDriver(); // new ChromeDriver() -> ctrl+atl+v // shift+f6-> change in all places
         driver.get("https://www.google.com");
     }
 
@@ -34,14 +34,10 @@ public class GoogleSearchTest {
         // driver.findElement(By.name("q"));
         WebElement element = driver.findElement(By.cssSelector("[name='q']"));
         //  driver.findElement(By.cssSelector("//*[@name='q']"));
-
         element.sendKeys("cheese!");
         element.sendKeys(Keys.ENTER);
-
         Thread.sleep(3000);
-
         List<WebElement> searchResultElements = driver.findElements(By.className("ajax_block_product col-xs-12 col-sm-4 col-md-3 first-in-line first-item-of-tablet-line first-item-of-mobile-line"));
-
-        assertTrue(searchResultElements.size()>0);
+        assertTrue(searchResultElements.size() > 0);
     }
 }

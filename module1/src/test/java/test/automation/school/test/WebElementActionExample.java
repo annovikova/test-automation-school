@@ -13,11 +13,11 @@ import java.util.List;
  */
 public class WebElementActionExample {
 
-
     public static void main(String[] args) {
 
-        System.setProperty("webdriver.gecko.driver", "drivers/geckodriver-v0.17.0-win32/geckodriver.exe");
-//
+        System.setProperty("webdriver.firefox.bin", "C:\\Users\\anastasia.kulakova\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
+        System.setProperty("webdriver.gecko.driver", "drivers/geckodriver-v0.20.1-win64/geckodriver.exe");
+
         WebDriver driver = new FirefoxDriver();
         driver.get("http://www.google.com");
         WebElement searchInputElement = driver.findElement(By.name("q"));
@@ -29,7 +29,6 @@ public class WebElementActionExample {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
 
         searchInputElement = driver.findElement(By.name("q"));
 
