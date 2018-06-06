@@ -27,7 +27,7 @@ public class WebElementActionExample2 {
         }
         inptSearch = driver.findElement(By.cssSelector("[name='q']"));
 
-        inptSearch.clear(); //
+        inptSearch.clear();
 
         inptSearch.sendKeys("banana");
         inptSearch.sendKeys(Keys.chord(Keys.CONTROL + "a"));//send text to input field
