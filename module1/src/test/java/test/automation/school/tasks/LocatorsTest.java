@@ -98,7 +98,7 @@ public class LocatorsTest {
     @Test
     public void locateElementByCssSelctorTest() throws Exception {
         //TODO 6 - locate only *visible* products element by CSS and put them into ArrayList Collection and check that elements list size is 7
-        List<WebElement> searchResultElements = driver.findElements(By.cssSelector("#homefeatured.active .ajax_block_product"));
+        List<WebElement> searchResultElements = driver.findElements(By.cssSelector(".active .ajax_block_product"));
         assertEquals(searchResultElements.size(), 7);
         //TODO 6
 
@@ -110,7 +110,7 @@ public class LocatorsTest {
         //NOTE - you have to indicate all class names that are specified on the current element
         // This is contrary to CSS Selector where you can specify just one of the class names
         // TIP - use 'contains()'
-        List<WebElement> searchResultElements = driver.findElements(By.xpath("//*[@id='homefeatured'][contains(@class, 'active')]/*[contains(@class, 'ajax_block_product')]"));
+        List<WebElement> searchResultElements = driver.findElements(By.xpath("//*[contains(@class, 'active')]/*[contains(@class, 'ajax_block_product')]"));
         Assert.assertTrue(searchResultElements.size() == 7);
         //TODO 7
     }
