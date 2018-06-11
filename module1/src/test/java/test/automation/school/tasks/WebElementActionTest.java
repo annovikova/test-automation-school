@@ -8,8 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 public class WebElementActionTest {
 
@@ -17,8 +19,8 @@ public class WebElementActionTest {
     //TODO 1 - inside of test fixture (test setup) - initialize WebDriver instance and navigate to http://automationpractice.com/
     private WebDriver driver;
 
-    @BeforeClass
-    public void setUp() throws Exception {
+    @BeforeMethod
+    public void before() throws Exception {
         System.setProperty("webdriver.firefox.bin", "C:\\Users\\anastasia.kulakova\\AppData\\Local\\Mozilla Firefox\\firefox.exe");
         System.setProperty("webdriver.gecko.driver", "..\\drivers\\geckodriver-v0.20.1-win64\\geckodriver.exe");
 
@@ -50,21 +52,22 @@ public class WebElementActionTest {
     @Test
     public void inptSearch() throws Exception {
         WebElement inptSearch = driver.findElement(By.id("search_query_top"));
-        inptSearch.sendKeys("test");
+        String inputText = "test";
+        inptSearch.sendKeys(inputText);
+        assertEquals(inptSearch.getAttribute("value"), inputText);
         inptSearch.clear();
     }
     //TODO 4
-
 
     //TODO 5 - Create TestNg Test method - input some value into search input field and submit the result. Verify that user is navigated to new page
     // NOTE - in order to verify that user has been navigated to new page, you can use 'driver.getTitle()', however this will work only for non Single Page Applications
     @Test
     public void submitSearch() throws Exception {
         WebElement inptSearch = driver.findElement(By.id("search_query_top"));
-        inptSearch.sendKeys("test",  Keys.ENTER);
+        inptSearch.sendKeys("test", Keys.ENTER);
         String getTitle = driver.getTitle();
-        System.out.println("Page title Is : "+getTitle);
-        Assert.assertEquals("My Store",getTitle);
+        System.out.println("Page title Is : " + getTitle);
+        Assert.assertEquals("My Store", getTitle);
     }
     //TODO 5
 
