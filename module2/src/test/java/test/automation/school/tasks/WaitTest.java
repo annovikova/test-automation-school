@@ -51,12 +51,16 @@ public class WaitTest {
     //TODO 3 - 2. verifies that checkbox element appears after hitting "Add" button
     //TODO 3 - Use Explicit Wait without Implicit Wait
     @Test
-    public void btn() throws Exception {
-        assertTrue(driver.findElement(By.id("btn")).isDisplayed());
-        WebElement button = driver.findElement(By.id("btn"));
-        button.click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("checkbox")));
+    public void checkboxDisplayCheck() throws Exception {
         assertTrue(driver.findElement(By.id("checkbox")).isDisplayed());
+        WebElement actionButton = driver.findElement(By.id("btn"));
+        actionButton.click();
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading")));
+        assertTrue(driver.findElements(By.id("checkbox")).size() == 0);
+        actionButton.click();
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading")));
+        assertTrue(driver.findElements(By.id("checkbox")).size() != 0);
+
     }
     //TODO 3
 
@@ -66,12 +70,20 @@ public class WaitTest {
     //TODO 4 - 2. verifies that checkbox element appears after hitting "Add" button
     //TODO 4 - Use Implicit Wait without Explicit Wait
     @Test
-    public void btn2() throws Exception {
-        assertTrue(driver.findElement(By.id("btn")).isDisplayed());
-        WebElement button = driver.findElement(By.id("btn"));
-        button.click();
-        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+    public void checkboxDisplayCheckWithImplWait() throws Exception {
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
         assertTrue(driver.findElement(By.id("checkbox")).isDisplayed());
+        WebElement actionButton = driver.findElement(By.id("btn"));
+        actionButton.click();
+
+        assertTrue(driver.findElement(By.id("message")).isDisplayed());
+        assertTrue(driver.findElements(By.id("checkbox")).size() == 0);
+        actionButton.click();
+
+        assertTrue(driver.findElement(By.id("message")).isDisplayed());
+        assertTrue(driver.findElements(By.id("checkbox")).size() != 0);
+
     }
     //TODO 4
 
